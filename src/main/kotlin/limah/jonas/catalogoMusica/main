@@ -1,0 +1,22 @@
+import limah.jonas.catalogoMusica.Song
+import java.util.*
+
+fun main(){
+    val lovezinho : Song = Song("lovezinho","desconhecido",2022,900.00)
+    val kisskiss : Song = Song("kisskiss","chris bronw",2005,5000.00)
+    val vodka : Song = Song("vodka ou agua de coco","naldo benny",2010,800.00)
+    val chorei : Song = Song("na vaquejada eu chorei","tarcisio do acordeon",2023,1050.00)
+
+    val list : List<Song> = listOf(
+        lovezinho,
+        kisskiss,
+        vodka,
+        chorei
+    )
+    var i : Int = 0
+   while(i<list.size){
+       list[i].descriptions()
+       list[i].isGood()
+       i++
+   }
+}
