@@ -1,0 +1,97 @@
+1) Escreva um algoritmo que armazene o valor 10 em uma variável A e o valor 20 em uma variável B.
+A seguir (utilizando apenas atribuições entre variáveis) troque os seus conteúdos fazendo com que o
+valor que está em A passe para B e vice-versa. Ao final, escrever os valores que ficaram armazenados
+nas variáveis.
+-resposta{
+        var a: Int = 10
+        var b : Int = 20
+        a = b
+        b = a
+}
+2) Os pares de instruções abaixo produzem o mesmo resultado?
+A (4/2)+(2/4) e A 4/2+2/4 true
+B 4/(2+2)/4 e B false
+C (4+2)*2-4 e C 4+2*2-4 false
+
+4) Escreva um algoritmo para ler um valor (do teclado) e escrever (na tela) o seu antecessor.
+resposta:{
+fun main() {
+    var n: Int
+    println("Digite um numero para saber o antecessor:")
+    n = readln().toInt()
+    before(n).also(::print)
+}
+fun before(n: Int):Int{
+    return n-1
+}
+}
+5) Escreva um algoritmo para ler as dimensões de um retângulo (base e altura), calcular e escrever a
+área do retângulo.
+
+fun main() {
+    val newRetangulo = Retangulo(80,30)
+    newRetangulo.get()
+}
+class Retangulo( base:Int, altura:Int ){
+        private val x: Int = base
+        private val y: Int = altura
+        private val area: Int = base * altura
+
+        fun get() = println("A area do retangulo é $area")
+
+}
+
+6) Faça um algoritmo que leia a idade de uma pessoa expressa em anos, meses e dias e escreva a idade
+dessa pessoa expressa apenas em dias. Considerar ano com 365 dias e mês com 30 dias.
+
+fun main() {
+    val age: String
+    val years: Int
+    val months: Int
+    val days: Int
+    println("digite sua idade: ")
+    println("anos: ")
+    years = readln().toInt()
+    println("meses: ")
+    months = readln().toInt()
+    println("dias: ")
+    days = readln().toInt()
+    age = ageConvert(years, months, days).also(::println)
+}
+fun ageConvert(years: Int,months: Int,days: Int): String{
+    val ageDays = ("Você tem ${(years * 365)+(months*30)+days} dias de vivido!")
+    return  ageDays
+}
+8) Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos
+brancos, nulos e válidos. Calcular e escrever o percentual que cada um representa em relação ao total
+de eleitores.
+
+fun main() {
+    val populacao: Int
+    val brancos: Int
+    val nulos: Int
+    val validos: Int
+    println("Digite o total da população: ")
+    populacao = readln().toInt()
+    println("Digite o total dde votos Brancos: ")
+    brancos = readln().toInt()
+    println("Digite o total dde votos Nulos: ")
+    nulos = readln().toInt()
+    println("Digite o total dde votos Válidos: ")
+    validos = readln().toInt()
+    verificador(populacao, brancos, nulos, validos)
+}
+
+fun verificador(populacao: Int, brancos: Int, nulos: Int, validos: Int) {
+    val brancoPorcento = populacao * brancos / 100
+    val nulosPorcento = populacao * nulos / 100
+    val validosPorcento = populacao * validos / 100
+    if ((brancos + nulos + validos) > populacao) {
+        println("teve mais votos que a população total verifique os dados!")
+    } else if ((brancos + nulos + validos) == populacao) {
+        println("Com uma população total de : $populacao\n-tivemos:\n$brancos votos brancos\n$nulos votos nulos\n$validos votos validos")
+        println("Brancos $brancoPorcento% da população total $populacao\nNulos $nulosPorcento% da população total $populacao\nVálidos $validosPorcento% da população total $populacao\n")
+    } else {
+        println("reveja os dados quantidades dos votos tem que ser igual ao da população")
+    }
+}
