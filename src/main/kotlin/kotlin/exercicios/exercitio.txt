@@ -62,7 +62,7 @@ fun ageConvert(years: Int,months: Int,days: Int): String{
     val ageDays = ("Você tem ${(years * 365)+(months*30)+days} dias de vivido!")
     return  ageDays
 }
-8) Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos
+7) Escreva um algoritmo para ler o número total de eleitores de um município, o número de votos
 brancos, nulos e válidos. Calcular e escrever o percentual que cada um representa em relação ao total
 de eleitores.
 
@@ -94,4 +94,69 @@ fun verificador(populacao: Int, brancos: Int, nulos: Int, validos: Int) {
     } else {
         println("reveja os dados quantidades dos votos tem que ser igual ao da população")
     }
+}
+
+8) Escreva um algoritmo para ler o salário mensal atual de um funcionário e o percentual de reajuste.
+Calcular e escrever o valor do novo salário.
+fun main() {
+    val salario: Double
+    val reajuste: Double
+    println("digite seu salario atual:")
+    salario = readln().toDouble()
+    println("digite seu reajuste:")
+    reajuste = readln().toDouble()
+    val novoSalario: Double = novoSalario(salario,reajuste)
+}
+
+fun novoSalario(salario: Double,reajuste: Double): Double{
+    val novoSalario: Double = (salario + ( reajuste/ 100 ))
+    println("seu novo salário é de R$ ${novoSalario} após o reajuste de ${reajuste}%")
+    return novoSalario
+}
+
+9) Uma revendedora de carros usados paga a seus funcionários vendedores um salário fixo por mês,
+mais uma comissão também fixa para cada carro vendido e mais 5% do valor das vendas por ele
+efetuadas. Escrever um algoritmo que leia o número de carros por ele vendidos, o valor total de suas
+vendas, o salário fixo e o valor que ele recebe por carro vendido. Calcule e escreva o salário final do
+vendedor.
+
+fun main() {
+    val salario: Int = 1_200
+    val tip: Int = 100
+    val vendas: Int
+    var totalVendas: Int = 0
+
+    println("digite quantidade de vendas realizada: ")
+    vendas = readln().toInt()
+    println("digite o valor total da sua venda: ")
+    totalVendas = readln().toInt()
+
+    calculador(salario,vendas,tip,totalVendas)
+}
+
+fun calculador(salario: Int,vendas: Int,tip: Int, totalVendas: Int):Int{
+    val salarioComissao = (salario + tip * vendas+(totalVendas*5/100))
+    println("Contra-Cheque:\n-Tips:$tip\n-Vendas qtde:$vendas\n-Salario fixo:$salario\n-Comissão:${totalVendas*5/100}\n" +
+            "-Salario total:$salarioComissao")
+    return salarioComissao
+}
+
+10) Escreva um algoritmo para ler uma temperatura em graus Fahrenheit, calcular e escrever o valor
+correspondente em graus Celsius (baseado na fórmula abaixo):
+ C             F - 32
+ ---------- = -----------
+ 5              9
+Observação: Para testar se a sua resposta está correta saiba que 100oC = 212F
+
+fun main() {
+    val fahrenheit:Double
+    println("Escreva a temperatura em Fahrenheit: ")
+    fahrenheit = readln().toDouble()
+    conversor(fahrenheit)
+
+}
+fun conversor(fahrenheit: Double):Double{
+    val celsius = ((fahrenheit - 32)/9)*5
+    println("a temperatura ${fahrenheit}F corresponde á ${celsius}°C")
+    return celsius
 }
